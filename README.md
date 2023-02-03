@@ -8,8 +8,7 @@ This repo is public at the moment, but big plans will push this to be made priva
 
 ### Structure
 
-File structure [reference](https://www.linkedin.com/pulse/what-general-c-project-structure-like-herbert-elwood-gilliland-iii/) for the application melds a bunch 
-
+File structure [reference](https://www.linkedin.com/pulse/what-general-c-project-structure-like-herbert-elwood-gilliland-iii/) for the application melds a bunch of different parts. The overall game structure is defined below.
 
 ```
 └── game            # Contain anything related to the game          
@@ -18,8 +17,11 @@ File structure [reference](https://www.linkedin.com/pulse/what-general-c-project
     ├── bin         # Executables
     ├── build       # Compilation binaries
     ├── doc         # Documentation files
-    ├── include     # Library headers
-    ├── lib         # External libraries
+    ├── include     # External libraries
+    ├── lib         # Library headers
     └── src         # All source code for the game
 ```
 
+### `make`
+
+Currently using `cmake` for generating the needed make files. Using [this guide](https://cmake.org/cmake/help/latest/guide/tutorial/A%20Basic%20Starting%20Point.html) for starting off with this tool.
