@@ -17,7 +17,7 @@ File structure [reference](https://www.linkedin.com/pulse/what-general-c-project
     ├── bin         # Executables
     ├── build       # Compilation binaries
     ├── doc         # Documentation files
-    ├── include     # External libraries
+    ├── inc         # External libraries
     ├── lib         # Library headers
     └── src         # All source code for the game
 ```
