@@ -49,14 +49,42 @@ SET (
 )
 
 # Find packages to be used
-FIND_PACKAGE (SDL2 REQUIRED HINTS PACKAGE_SEARCH_PATHS)
-FIND_PACKAGE (SDL2_ttf REQUIRED HINTS PACKAGE_SEARCH_PATHS)
-FIND_PACKAGE (SDL2_image REQUIRED HINTS PACKAGE_SEARCH_PATHS)
-FIND_PACKAGE (SDL2_mixer REQUIRED HINTS PACKAGE_SEARCH_PATHS)
+FIND_PACKAGE (SDL2 2.26.2 REQUIRED HINTS PACKAGE_SEARCH_PATHS)
+MESSAGE ("-- SDL2 version ${SDL2_VERSION}")
+FIND_PACKAGE (SDL2_ttf 2.20.1 REQUIRED HINTS PACKAGE_SEARCH_PATHS)
+MESSAGE ("-- SDL2_ttf version ${SDL2_ttf_VERSION}")
+FIND_PACKAGE (SDL2_image 2.6.2 REQUIRED HINTS PACKAGE_SEARCH_PATHS)
+MESSAGE ("-- SDL2_image version ${SDL2_image_VERSION}")
+FIND_PACKAGE (SDL2_mixer 2.6.2 REQUIRED HINTS PACKAGE_SEARCH_PATHS)
+MESSAGE ("-- SDL2_mixer version ${SDL2_mixer_VERSION}")
+
+IF (NOT SDL2_FOUND)
+    ERROR ("SDL2 package not found")
+ELSEIF (NOT SDL2_ttf_FOUND)
+    ERROR ("SDL2_ttf package not found")
+ELSEIF (NOT SDL2_image_FOUND)
+    ERROR ("SDL2_image package not found")
+ELSEIF (NOT SDL2_mixer_FOUND)
+    ERROR ("SDL2_mixer package not found")
+ENDIF ()
+
 
 # =============================================================================
 
+# System-specific actions
+IF (UNIX)
+    MESSAGE ("-- Operating system ${CMAKE_SYSTEM_NAME}")
+ELSEIF (APPLE)
+    MESSAGE ("-- Operating system ${CMAKE_SYSTEM_NAME}")
+ELSEIF (WIN32)
+    MESSAGE ("-- Operating system ${CMAKE_SYSTEM_NAME}")
+ENDIF ()
+
+# =============================================================================
+
+
 # Define final executable
+SET (EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/${PROJECT_BIN_DIR})
 ADD_EXECUTABLE (${PROJECT_NAME} ${EXEC_SRC})
 
 # Include packages (the included header files)
@@ -84,6 +112,8 @@ TARGET_LINK_LIBRARIES (
 SET (GCC_COMPILER_CXX "$<COMPILE_LANG_AND_ID:CXX,ARMClang,AppleClang,Clang,GNU,LCC>")
 SET (MSVC_COMPILER_CXX "$<COMPILE_LANG_AND_ID:CXX,MSVC>")
 
+
+MESSAGE ("-- Build type ${CMAKE_BUILD_TYPE}")
 TARGET_COMPILE_OPTIONS (${PROJECT_NAME} INTERFACE
   "$<${GCC_COMPILER_CXX}:$<BUILD_INTERFACE:-Wall;-Wextra;-Wshadow;-Wformat=2;-Wunused>>"
   "$<${MSVC_COMPILER_CXX}:$<BUILD_INTERFACE:-W3>>"
