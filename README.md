@@ -25,3 +25,8 @@ File structure [reference](https://www.linkedin.com/pulse/what-general-c-project
 ### `make`
 
 Currently using `cmake` for generating the needed make files. Using [this guide](https://cmake.org/cmake/help/latest/guide/tutorial/A%20Basic%20Starting%20Point.html) for starting off with this tool.
+
+```
+cd game
+cmake -H. -DCMAKE_BUILD_TYPE=<Debug,Release>
+```
