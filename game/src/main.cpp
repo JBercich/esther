@@ -40,10 +40,11 @@ if ( result != 0 ) {
 int MinSize = 0;
 int MaxSize = 255;
 
-  SDL_Window* window = SDL_CreateWindow("potato",
-                                      SDL_WINDOWPOS_CENTERED,
-                                      SDL_WINDOWPOS_CENTERED,
-                                      WIDTH, HEIGHT, SDL_WINDOW_RESIZABLE);
+SDL_Window* window = SDL_CreateWindow("potato",
+                                    SDL_WINDOWPOS_CENTERED,
+                                    SDL_WINDOWPOS_CENTERED,
+                                    WIDTH, HEIGHT, SDL_WINDOW_RESIZABLE);
+SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
 SDL_DisplayMode DM;
 SDL_GetCurrentDisplayMode(0, &DM);
 auto MaxPosX = DM.w;
