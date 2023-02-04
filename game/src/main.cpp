@@ -68,6 +68,22 @@ int MinPos = 0;
   cout << cwd;
 
 
+
+  filesystem::path wwwww = filesystem::current_path() / "assets" / "prime_time.jpg";
+
+
+SDL_Surface* surface = IMG_Load(wwwww.c_str()); 
+SDL_Texture* texture = SDL_CreateTextureFromSurface(rend, surface); 
+
+
+
+
+
+
+
+
+
+
   bool FULL_SCREEN = FULL_SCREEN_DEFAULT;
   while (!quit){
     time_t e_time = time(NULL);
@@ -120,7 +136,18 @@ cout << Mix_PlayChannel(-1,  music, 2 );
         ) {
             SDL_RenderClear(rend);
 
+
+
+SDL_Rect dest;
+dest.x = (rand() % (MaxPosX + 1 - MinPos) + MinPos) - 100; //e.motion.x;
+dest.y = (rand() % (MaxPosY + 1 - MinPos) + MinPos) - 100; //e.motion.y;
+dest.w = 10* (rand() % (MaxSize + 1 - MinSize) + MinSize);
+dest.h = 10* (rand() % (MaxSize + 1 - MinSize) + MinSize);
+
+SDL_RenderCopy(rend, texture, NULL, &dest);
+
             SDL_Rect rect;
+            for (int i = 0; i<50; i++) {
             rect.x = rand() % (MaxPosX + 1 - MinPos) + MinPos; //e.motion.x;
             rect.y = rand() % (MaxPosY + 1 - MinPos) + MinPos; //e.motion.y;
             rect.w = rand() % (MaxSize + 1 - MinSize) + MinSize;
@@ -128,6 +155,7 @@ cout << Mix_PlayChannel(-1,  music, 2 );
 
             SDL_SetRenderDrawColor(rend, rand() % (255 + 1 - 0) + 0, rand() % (255 + 1 - 0) + 0, rand() % (255 + 1 - 0) + 0, 255);
             SDL_RenderFillRect(rend, &rect);
+            }
 
             SDL_SetRenderDrawColor(rend, rand() % (255 + 1 - 0) + 0, rand() % (255 + 1 - 0) + 0, rand() % (255 + 1 - 0) + 0, 255);
 
@@ -160,7 +188,7 @@ cout << Mix_PlayChannel(-1,  music, 2 );
 
   Mix_FreeChunk( music );
     music = NULL;
-
+  SDL_FreeSurface(surface);
   SDL_DestroyRenderer(rend);
   SDL_DestroyWindow(window);
   Mix_Quit();
