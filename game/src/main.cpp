@@ -9,23 +9,16 @@
 #include <string>
 #include <iostream>
 
+#include <Engine/Window.h>
+
 using namespace std;
+
 
 bool lshift = false;
 
-
-
-
-        int main()
+int main()
 {
 
-
-
-
-
-
-
-  
   // report version
   cout << " Version " << VERSION_MAJOR << "."
        << VERSION_MINOR << "\n";
