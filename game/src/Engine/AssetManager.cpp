@@ -1,20 +1,21 @@
-#include <Engine/AssetManager.hpp>
-
-#include <stdexcept>
 #include <SDL2_Image/SDL_Image.h>
+#include <spdlog/spdlog.h>
 
-void AssetManager::init()
-{
-    IMG_SetError(NULL);
-    if (!IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG))
-    {
-        string errorMessage = "IMG_Init: ";
-        errorMessage += IMG_GetError();
-        throw runtime_error(errorMessage);
-    }
+#include <Engine/AssetManager.hpp>
+#include <stdexcept>
+
+/**
+ * Initialise an AssetManager instance.
+ */
+void AssetManager::init() {
+  int initResult = IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);
+  if (initResult == 0) {
+    spdlog::error("Failed to start AssetManager: {}", IMG_GetError());
+    throw runtime_error();
+  }
 }
 
-void AssetManager::quit()
-{
-    IMG_Quit();
-}
+/**
+ * Quit an AssetManager instance.
+ */
+void AssetManager::quit() { IMG_Quit(); }

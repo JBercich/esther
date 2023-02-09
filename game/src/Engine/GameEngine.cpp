@@ -1,15 +1,25 @@
+#include <spdlog/spdlog.h>
+
 #include <Engine/GameEngine.hpp>
 
-void GameEngine::init()
-{
-    SDL_Init(SDL_INIT_EVERYTHING);
-    windowManager.init();
-    assetManager.init();
+/**
+ * Initialise a GameEngine instance.
+ */
+void GameEngine::init() {
+  int initResult = SDL_Init(SDL_INIT_EVERYTHING);
+  if (initResult == 0) {
+    spdlog::error("Failed to start SDL2: {}",
+                  SDL_GetError()) throw runtime_error();
+  }
+  windowManager.init();
+  assetManager.init();
 }
 
-void GameEngine::quit()
-{
-    assetManager.quit();
-    windowManager.quit();
-    SDL_Quit();
+/**
+ * Quit a GameEngine instance.
+ */
+void GameEngine::quit() {
+  assetManager.quit();
+  windowManager.quit();
+  SDL_Quit();
 }

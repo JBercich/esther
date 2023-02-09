@@ -2,32 +2,33 @@
 // #include "GameConfig.h"
 // #include "WindowEnvironment.h"
 
-#include <string>
 #include <iostream>
+#include <string>
 
 // #include <Engine/Window.h>
+
+#include <spdlog/spdlog.h>
 
 #include <CmakeConfig.hpp>
 #include <Engine/GameEngine.hpp>
 
-#include <spdlog/spdlog.h>
-
 using namespace std;
 
-int main()
-{
+int main() {
   // Runtime logging setup
-  spdlog::set_pattern("[%H:%M:%S %z] [%n] [%^---%L---%$] [thread %t] %v");
+  spdlog::set_pattern("[%H:%M:%S %z] [%n] [%^---%L---%$] [%t] %v");
   spdlog::enable_backtrace(20);
-  
+
+  // [source % s][function % !][line % #]
+
   // Runtime loop
   GameEngine gameEngine;
   gameEngine.init();
   SDL_Delay(3000);
   gameEngine.quit();
 
-  // Application close 
-  spdlog::dump_backtrace(); 
+  // Application close
+  spdlog::dump_backtrace();
 
   // TTF_Init();
 

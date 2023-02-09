@@ -4,13 +4,12 @@
 #include <Engine/AssetManager.hpp>
 #include <Engine/WindowManager.hpp>
 
-class GameEngine
-{
+class GameEngine {
 public:
-    AssetManager assetManager;
-    WindowManager windowManager;
-    void init();
-    void quit();
+  AssetManager assetManager;
+  WindowManager windowManager;
+  void init();
+  void quit();
 };
 
 #endif
