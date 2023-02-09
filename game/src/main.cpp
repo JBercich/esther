@@ -1,48 +1,37 @@
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
-#include <SDL2_ttf/SDL_ttf.h>
-#include <SDL2_mixer/SDL_mixer.h>
 
 // #include "GameConfig.h"
 // #include "WindowEnvironment.h"
 
-// #include <string>
-// #include <iostream>
+#include <string>
+#include <iostream>
 
 // #include <Engine/Window.h>
 
-#include <Engine/WindowManager.hpp>
+#include <CmakeConfig.hpp>
+#include <Engine/GameEngine.hpp>
+
+#include <spdlog/spdlog.h>
+
 using namespace std;
 
 int main()
 {
-  SDL_Init(SDL_INIT_EVERYTHING);
-  WindowManager windowManager;
-  windowManager.init();
+  // Runtime logging setup
+  spdlog::set_pattern("[%H:%M:%S %z] [%n] [%^---%L---%$] [thread %t] %v");
+  spdlog::enable_backtrace(20);
+  
+  // Runtime loop
+  GameEngine gameEngine;
+  gameEngine.init();
   SDL_Delay(3000);
-  windowManager.quit();
+  gameEngine.quit();
 
-  SDL_Quit();
-  //  cout << n.window << endl;
-  //  return 0;
-  // cout << &w;
+  // Application close 
+  spdlog::dump_backtrace(); 
 
-  // // report version
-  // cout << " Version " << VERSION_MAJOR << "."
-  //      << VERSION_MINOR << "\n";
-  // SDL_Init(SDL_INIT_VIDEO);
-  // IMG_Init(IMG_INIT_PNG);
   // TTF_Init();
 
-  // SDL_Window *window = SDL_CreateWindow("potato",
-  //                                       SDL_WINDOWPOS_CENTERED,
-  //                                       SDL_WINDOWPOS_CENTERED,
-  //                                       WIDTH, HEIGHT, SDL_WINDOW_RESIZABLE);
-
-  // SDL_Renderer *rend = SDL_CreateRenderer(window, -1, 0);
   // SDL_Event e;
-  // bool quit = false;
-  // bool FULL_SCREEN = FULL_SCREEN_DEFAULT;
   // while (!quit)
   // {
   //   while (SDL_PollEvent(&e))
@@ -130,10 +119,4 @@ int main()
   //     //
   //   }
   // }
-
-  // /* Release resources */
-  // SDL_DestroyRenderer(rend);
-  // SDL_DestroyWindow(window);
-  // SDL_Quit();
-  // return 0;
 }

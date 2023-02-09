@@ -22,8 +22,6 @@ private:
     string windowTitle = WINDOW_TITLE;
     int windowWidth = WINDOW_WIDTH;
     int windowHeight = WINDOW_HEIGHT;
-    int resolutionWidth = WINDOW_RES_WIDTH;
-    int resolutionHeight = WINDOW_RES_HEIGHT;
 
 public:
     SDL_Window *window;
