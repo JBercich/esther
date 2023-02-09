@@ -104,7 +104,7 @@ ENDFOREACH ()
 # =============================================================================
 
 # Cmake compile command
-SET (CMAKE_EXPORT_COMPILE_COMMANDS ON)
+# SET (CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Define final executable
 FILE(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/*.cpp")
