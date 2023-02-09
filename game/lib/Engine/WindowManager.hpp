@@ -17,11 +17,6 @@ using namespace std;
 #define WINDOW_BACKGROUND_B 0x00
 
 class WindowManager {
-private:
-  string windowTitle = WINDOW_TITLE;
-  int windowWidth = WINDOW_WIDTH;
-  int windowHeight = WINDOW_HEIGHT;
-
 public:
   SDL_Window *window;
   SDL_Renderer *renderer;

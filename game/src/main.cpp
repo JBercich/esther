@@ -5,21 +5,17 @@
 #include <iostream>
 #include <string>
 
-// #include <Engine/Window.h>
-
-#include <spdlog/spdlog.h>
-
 #include <CmakeConfig.hpp>
 #include <Engine/GameEngine.hpp>
+#include <spdlog/spdlog.h>
 
 using namespace std;
 
 int main() {
   // Runtime logging setup
-  spdlog::set_pattern("[%H:%M:%S %z] [%n] [%^---%L---%$] [%t] %v");
-  spdlog::enable_backtrace(20);
-
-  // [source % s][function % !][line % #]
+  spdlog::set_pattern("[%H:%M:%S %z] [%^-%L-%$] [%s::%!(%#)] %v");
+  spdlog::enable_backtrace(5);
+  SPDLOG_INFO("starting game");
 
   // Runtime loop
   GameEngine gameEngine;
@@ -29,8 +25,7 @@ int main() {
 
   // Application close
   spdlog::dump_backtrace();
-
-  // TTF_Init();
+  spdlog::shutdown();
 
   // SDL_Event e;
   // while (!quit)
