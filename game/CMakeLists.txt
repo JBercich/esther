@@ -55,7 +55,7 @@ ENDIF ()
 # =============================================================================
 
 # Contain cmake level constants e.g. OS and versioning
-CONFIGURE_FILE (lib/GameConfig.h.in lib/GameConfig.h)
+CONFIGURE_FILE (lib/CmakeConfig.hpp.in lib/CmakeConfig.hpp)
 
 # Search patterns for finding packages
 SET (
@@ -107,8 +107,9 @@ ENDFOREACH ()
 SET (CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Define final executable
+FILE(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "src/*.cpp")
 SET (EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/${PROJECT_BIN_DIR})
-ADD_EXECUTABLE (${PROJECT_NAME} ${EXEC_SRC})
+ADD_EXECUTABLE (${PROJECT_NAME} ${SOURCES})
 MESSAGE ("-- Set executable build output to: ${PROJECT_BIN_DIR}")
 
 # Include packages (the included header files)

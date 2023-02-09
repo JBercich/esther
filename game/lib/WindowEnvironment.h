@@ -1,7 +1,0 @@
-#define WIDTH 256
-#define HEIGHT 256
-#define FULL_SCREEN_DEFAULT false
-#define BACKGROUND_R 0
-#define BACKGROUND_G 0
-#define BACKGROUND_B 0
-#define BACKGROUND_A 255
