@@ -6,7 +6,7 @@
 #include <string>
 
 #include <CmakeConfig.hpp>
-#include <Engine/GameEngine.hpp>
+#include <Engine/GameLoop.hpp>
 #include <spdlog/spdlog.h>
 
 using namespace std;
@@ -18,10 +18,10 @@ int main() {
   SPDLOG_INFO("starting game");
 
   // Runtime loop
-  GameEngine gameEngine;
-  gameEngine.init();
-  SDL_Delay(3000);
-  gameEngine.quit();
+  GameLoop gameLoop;
+  gameLoop.gameEngine.init();
+  gameLoop.run();
+  gameLoop.gameEngine.quit();
 
   // Application close
   spdlog::dump_backtrace();
