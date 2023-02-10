@@ -30,3 +30,23 @@ Currently using `cmake` for generating the needed make files. Using [this guide]
 cd game
 cmake -H. -DCMAKE_BUILD_TYPE=<Debug,Release>
 ```
+
+
+# Library Management
+
+Refer to `game/CMakeLists.txt` for the search patterns used for locating library files (`PACKAGE_SEARCH_PATHS`).
+
+## Darwin
+
+This is the OS I use for development. There were a few known issues that I encountered for adding certain library files.
+
+- `SDL2*` libraries seemed to not contain any linker directory when installed via homebrew. I suggest installing `.dmg` framework releases from official [GitHub `libsdl` repos](https://github.com/libsdl-org/SDL/releases). There appeared to issues with popular installed libraries such as `ffmpeg` which didn't would impact sourcing libraries files and so I needed to uninstall these and only add the `.framework` releases to `/Library/Frameworks` which I add as a search pattern.
+- `SPDLOG` could be installed directly with homebrew with no known issues.
+
+## Linux
+
+Not tested.
+
+## Windows
+
+Not tested.
