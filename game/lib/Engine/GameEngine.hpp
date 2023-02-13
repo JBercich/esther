@@ -1,10 +1,10 @@
 #ifndef GAME_ENGINE_H
 #define GAME_ENGINE_H
 
-#include <Engine/AssetManager.hpp>
-#include <Engine/AudioManager.hpp>
-#include <Engine/FontManager.hpp>
-#include <Engine/WindowManager.hpp>
+#include <Engine/Manager/AssetManager.hpp>
+#include <Engine/Manager/AudioManager.hpp>
+#include <Engine/Manager/FontManager.hpp>
+#include <Engine/Manager/WindowManager.hpp>
 
 class GameEngine {
 public:

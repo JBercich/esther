@@ -6,7 +6,7 @@
 #include <string>
 
 #include <CmakeConfig.hpp>
-#include <Engine/GameLoop.hpp>
+#include <Game/GameLoop.hpp>
 #include <spdlog/spdlog.h>
 
 using namespace std;
@@ -24,6 +24,7 @@ int main() {
   gameLoop.gameEngine.quit();
 
   // Application close
+  SPDLOG_INFO("starting game");
   spdlog::dump_backtrace();
   spdlog::shutdown();
 

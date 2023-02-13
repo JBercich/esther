@@ -1,5 +1,5 @@
-#ifndef WINDOW_MANAGER_H
-#define WINDOW_MANAGER_H
+#ifndef WINDOW_MANAGER_HPP
+#define WINDOW_MANAGER_HPP
 
 #include <SDL2/SDL.h>
 #include <iostream>

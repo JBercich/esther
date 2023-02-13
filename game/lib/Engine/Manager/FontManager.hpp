@@ -1,5 +1,5 @@
-#ifndef FONT_MANAGER_H
-#define FONT_MANAGER_H
+#ifndef FONT_MANAGER_HPP
+#define FONT_MANAGER_HPP
 
 class FontManager {
 public:

@@ -1,5 +1,5 @@
-#ifndef AUDIO_MANAGER_H
-#define AUDIO_MANAGER_H
+#ifndef AUDIO_MANAGER_HPP
+#define AUDIO_MANAGER_HPP
 
 class AudioManager {
 public:
