@@ -1,5 +1,5 @@
-#ifndef ASSET_MANAGER_H
-#define ASSET_MANAGER_H
+#ifndef ASSET_MANAGER_HPP
+#define ASSET_MANAGER_HPP
 
 class AssetManager {
 public:

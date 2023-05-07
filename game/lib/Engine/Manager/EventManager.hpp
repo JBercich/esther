@@ -1,7 +1,6 @@
-#ifndef EVENT_MANAGER_H
-#define EVENT_MANAGER_H
+#ifndef EVENT_MANAGER_HPP
+#define EVENT_MANAGER_HPP
 
-#include <Engine/Controller.hpp>
 #include <SDL2/SDL.h>
 
 class EventManager {
