@@ -1,12 +1,13 @@
 #ifndef GAME_ENGINE_H
 #define GAME_ENGINE_H
 
-#include <Engine/Manager/AssetManager.hpp>
-#include <Engine/Manager/AudioManager.hpp>
-#include <Engine/Manager/FontManager.hpp>
-#include <Engine/Manager/WindowManager.hpp>
+#include <Engine/Manager/Asset.hpp>
+#include <Engine/Manager/Audio.hpp>
+#include <Engine/Manager/Font.hpp>
+#include <Engine/Manager/Window.hpp>
 
-class GameEngine {
+class GameEngine
+{
 public:
   AssetManager assetManager;
   WindowManager windowManager;

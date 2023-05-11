@@ -3,30 +3,34 @@
 // #include "WindowEnvironment.h"
 
 #include <iostream>
-#include <string>
+// #include <string>
 
-#include <CmakeConfig.hpp>
-#include <Game/GameLoop.hpp>
-#include <spdlog/spdlog.h>
+// #include <CmakeConfig.hpp>
+// #include <Game/GameLoop.hpp>
+// #include <spdlog/spdlog.h>
 
-using namespace std;
+// using namespace std;
 
-int main() {
-  // Runtime logging setup
-  spdlog::set_pattern("[%H:%M:%S %z] [%^-%L-%$] [%s::%!(%#)] %v");
-  spdlog::enable_backtrace(5);
-  SPDLOG_INFO("starting game");
+int main()
+{
+  std::cout << "Hello World!";
+  return 0;
 
-  // Runtime loop
-  GameLoop gameLoop;
-  gameLoop.gameEngine.init();
-  gameLoop.run();
-  gameLoop.gameEngine.quit();
+  // // Runtime logging setup
+  // spdlog::set_pattern("[%H:%M:%S %z] [%^-%L-%$] [%s::%!(%#)] %v");
+  // spdlog::enable_backtrace(5);
+  // SPDLOG_INFO("starting game");
 
-  // Application close
-  SPDLOG_INFO("starting game");
-  spdlog::dump_backtrace();
-  spdlog::shutdown();
+  // // Runtime loop
+  // GameLoop gameLoop;
+  // gameLoop.gameEngine.init();
+  // gameLoop.run();
+  // gameLoop.gameEngine.quit();
+
+  // // Application close
+  // SPDLOG_INFO("starting game");
+  // spdlog::dump_backtrace();
+  // spdlog::shutdown();
 
   // SDL_Event e;
   // while (!quit)
@@ -34,7 +38,7 @@ int main() {
   //   while (SDL_PollEvent(&e))
   //   {
   //     if (!lshift)
-  //     {
+  //     {`
   //       if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_LSHIFT)
   //       {
   //         lshift = true;
