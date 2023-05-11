@@ -6,8 +6,7 @@
 #include <Engine/Manager/Font.hpp>
 #include <Engine/Manager/Window.hpp>
 
-class GameEngine
-{
+class GameEngine {
 public:
   AssetManager assetManager;
   WindowManager windowManager;
