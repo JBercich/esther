@@ -27,14 +27,14 @@ cmake_path(SET SOURCE_LIBRARY_DIR "${CMAKE_SOURCE_DIR}/lib")
 cmake_path(SET SOURCE_ASSETS_DIR "${CMAKE_SOURCE_DIR}/assets")
 
 # Set configure file paths
-cmake_path(SET PONG_CONFIG_FILE "${SOURCE_BINARY_DIR}/PongConfig.hpp")
-cmake_path(SET SXSW_CONFIG_FILE "${SOURCE_BINARY_DIR}/SXSWConfig.hpp")
-cmake_path(SET SYSTEM_CONFIG_FILE "${SOURCE_BINARY_DIR}/SystemConfig.hpp")
-cmake_path(SET PROJECT_CONFIG_FILE "${SOURCE_BINARY_DIR}/ProjectConfig.hpp")
-cmake_path(SET PONG_CONFIG_FILE_IN "${SOURCE_BINARY_DIR}/PongConfig.hpp.in")
-cmake_path(SET SXSW_CONFIG_FILE_IN "${SOURCE_BINARY_DIR}/SXSWConfig.hpp.in")
-cmake_path(SET SYSTEM_CONFIG_FILE_IN "${SOURCE_BINARY_DIR}/SystemConfig.hpp.in")
-cmake_path(SET PROJECT_CONFIG_FILE_IN "${SOURCE_BINARY_DIR}/ProjectConfig.hpp.in")
+cmake_path(SET SYSTEM_CONFIG_FILE "${SOURCE_BINARY_DIR}/BuildConfigSystem.hpp")
+cmake_path(SET PROJECT_CONFIG_FILE "${SOURCE_BINARY_DIR}/BuildConfigProject.hpp")
+cmake_path(SET PONG_CONFIG_FILE "${SOURCE_BINARY_DIR}/BuildConfigTargetPong.hpp")
+cmake_path(SET SXSW_CONFIG_FILE "${SOURCE_BINARY_DIR}/BuildConfigTargetSXSW.hpp")
+cmake_path(SET SYSTEM_CONFIG_FILE_IN "${SOURCE_BINARY_DIR}/BuildConfigSystem.hpp.in")
+cmake_path(SET PROJECT_CONFIG_FILE_IN "${SOURCE_BINARY_DIR}/BuildConfigProject.hpp.in")
+cmake_path(SET PONG_CONFIG_FILE_IN "${SOURCE_BINARY_DIR}/BuildConfigTargetPong.hpp.in")
+cmake_path(SET SXSW_CONFIG_FILE_IN "${SOURCE_BINARY_DIR}/BuildConfigTargetSXSW.hpp.in")
 
 # Read operating system information
 message("-- Operating system information")
