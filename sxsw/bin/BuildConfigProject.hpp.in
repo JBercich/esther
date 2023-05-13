@@ -1,13 +1,12 @@
 // =====================================================================================
-// CMake System Configuration
+// CMake Project Configuration
 // =====================================================================================
-// Configuration fields generated from the used system when compiling the
-// project in CMake which are defined at runtime.
+// Configuration fields generated from CMake-specific build fields.
 // =====================================================================================
 
-#define PROJECT_BUILD_DIR @PROJECT_BUILD_DIR@
-#define PROJECT_AUDIO_DIR @PROJECT_AUDIO_DIR@
-#define PROJECT_BINARY_DIR @PROJECT_BINARY_DIR@
-#define PROJECT_SOURCE_DIR @PROJECT_SOURCE_DIR@
-#define PROJECT_ASSETS_DIR @PROJECT_ASSETS_DIR@
-#define PROJECT_LIBRARY_DIR @PROJECT_LIBRARY_DIR@
+#define SOURCE_BUILD_DIR @SOURCE_BUILD_DIR@
+#define SOURCE_AUDIO_DIR @SOURCE_AUDIO_DIR@
+#define SOURCE_BINARY_DIR @SOURCE_BINARY_DIR@
+#define SOURCE_SOURCE_DIR @SOURCE_SOURCE_DIR@
+#define SOURCE_ASSETS_DIR @SOURCE_ASSETS_DIR@
+#define SOURCE_LIBRARY_DIR @SOURCE_LIBRARY_DIR@
