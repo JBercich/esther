@@ -1,0 +1,9 @@
+// =====================================================================================
+// Pong Project Configuration
+// =====================================================================================
+// Configuration fields generated for the Cmake Pong project.
+// =====================================================================================
+
+#define PONG_VERSION_MAJOR @PONG_VERSION_MAJOR@
+#define PONG_VERSION_MINOR @PONG_VERSION_MINOR@
+#define PONG_VERSION_PATCH @PONG_VERSION_PATCH@

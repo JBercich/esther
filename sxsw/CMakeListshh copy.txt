@@ -1,12 +1,3 @@
-# =============================================================================
-# cmake definition for automated makefile generation.
-#   Handles creating a comprehensive makefile for the project depending on the
-#   arguments from this configuration. 
-# =============================================================================
-
-MESSAGE ("- Generating cmake environment")
-
-# Define project dirs
 SET (PROJECT_BIN_DIR bin)
 SET (PROJECT_INC_DIR inc)
 SET (PROJECT_LIB_DIR lib)
@@ -17,7 +8,6 @@ SET (PROJECT_ASSETS_DIR assets)
 SET (EXEC_SRC ${PROJECT_SRC_DIR}/main.cpp)
 SET (METADATA_FILE ${PROJECT_BIN_DIR}/cmake.ini)
 
-# Define cmake environment
 CMAKE_MINIMUM_REQUIRED (VERSION 3.24.2)
 
 # Handle NEW versioning definition
@@ -29,21 +19,8 @@ ENDIF (POLICY CMP0048)
 SET (CMAKE_CXX_STANDARD 20)
 SET (CMAKE_CXX_STANDARD_REQUIRED True)
 
-# =============================================================================
-
 PROJECT (Game VERSION 0.1.0 LANGUAGES CXX) # NOTE: update version
 
-# =============================================================================
-
-# Describe system
-MESSAGE ("-- Reading running operating system")
-MESSAGE ("--- name \t -> \t ${CMAKE_SYSTEM_NAME}")
-MESSAGE ("--- version \t -> \t ${CMAKE_SYSTEM_VERSION}")
-MESSAGE ("--- processor \t -> \t ${CMAKE_SYSTEM_PROCESSOR}")
-MESSAGE ("--- hostname \t -> \t ${CMAKE_HOST_SYSTEM_NAME}")
-MESSAGE ("--- tagname \t -> \t ${CMAKE_SYSTEM}")
-
-# System-specific actions
 IF (UNIX)
     # TODO: perform relevant system operations
 ELSEIF (APPLE)
@@ -52,10 +29,6 @@ ELSEIF (WIN32)
     # TODO: perform relevant system operations
 ENDIF ()
 
-# =============================================================================
-
-# Contain cmake level constants e.g. OS and versioning
-CONFIGURE_FILE (lib/CmakeConfig.hpp.in lib/CmakeConfig.hpp)
 
 # Search patterns for finding packages
 SET (
@@ -70,8 +43,6 @@ SET (
     /sw 
 )
 
-# Process packages
-MESSAGE ("-- Setting up project packages")
 
 # For managing runtime logging
 FIND_PACKAGE (spdlog 1.11.0 REQUIRED HINTS PACKAGE_SEARCH_PATHS)
