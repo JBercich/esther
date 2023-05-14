@@ -40,9 +40,16 @@ cmake_path(SET BUILD_ASSETS_DIRECTORY "${CMAKE_SOURCE_DIR}/assets")
 cmake_path(SET BUILD_CONFIG_FILE "${BUILD_BINARY_DIRECTORY}/BuildConfiguration.hpp")
 cmake_path(SET RUNTIME_CONFIG_FILE "${BUILD_BINARY_DIRECTORY}/RuntimeConfiguration.hpp")
 
-# Additional variables
-set(SXSW_ICON ${BUILD_ASSETS_DIRECTORY}/images/icon.icns)
+# CXX Compiler IDs
+set(GCC_CXX_COMPILER "$<COMPILE_LANG_AND_ID:CXX,ARMClang,AppleClang,Clang,GNU,LCC>")
+set(MSVC_CXX_COMPILER "$<COMPILE_LANG_AND_ID:CXX,MSVC>")
+
+# Executable build
+set(${PROJECT_NAME}_ICON ${BUILD_ASSETS_DIRECTORY}/images/icon.icns)
 set(EXECUTABLE_OUTPUT_PATH ${BUILD_BINARY_DIRECTORY})
+
+
+# Additional variables
 set(ADDITIONAL_PACKAGE_SEARCH_PATTERNS
     # Apple    
     # ~/Library/Frameworks
@@ -69,20 +76,26 @@ find_package(SDL2_mixer 2.6.2 REQUIRED HINTS ADDITIONAL_PACKAGE_SEARCH_PATTERNS)
 # Define the executable
 # ======================================================================================
 
+# Build the executable for each operating system
 if(APPLE)
-    set_source_files_properties(
-        ${SXSW_ICON}
-        PROPERTIES 
+    set_source_files_properties(${${PROJECT_NAME}_ICON} PROPERTIES 
         MACOSX_PACKAGE_LOCATION "Resources"
-        MACOSX_BUNDLE_ICON_FILE "${SXSW_ICON}" 
+        MACOSX_BUNDLE_ICON_FILE "${${PROJECT_NAME}_ICON}" 
     )
-    add_executable(SXSW MACOSX_BUNDLE ${SXSW_ICON}) 
+    add_executable(SXSW MACOSX_BUNDLE ${${PROJECT_NAME}_ICON}) 
 elseif(WIN32)
     add_executable(SXSW WIN32)
 endif()
 
+# Build source directory and link libraries
 add_subdirectory(${BUILD_SOURCE_DIRECTORY})   
 target_link_libraries(SXSW PRIVATE libEngine libSXSW)
+
+# Set the compile options for the runtime build
+target_compile_options(SXSW INTERFACE
+    "$<${GCC_CXX_COMPILER}:$<BUILD_INTERFACE:-Wall;-Wextra;-Wshadow;-Wformat=2;-Wunused>>"
+    "$<${MSVC_CXX_COMPILER}:$<BUILD_INTERFACE:-W3>>"
+)
 
 # ======================================================================================
 # Write configuration files

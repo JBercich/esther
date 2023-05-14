@@ -47,6 +47,3 @@ _deps
 # Dev
 .DS_Store
 .vscode
-
-# Ignore the runtime configuration
-game/lib/CmakeConfig.hpp
