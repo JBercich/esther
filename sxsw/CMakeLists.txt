@@ -44,14 +44,14 @@ cmake_path(SET RUNTIME_CONFIG_FILE "${BUILD_BINARY_DIRECTORY}/RuntimeConfigurati
 set(EXECUTABLE_OUTPUT_PATH ${BUILD_BINARY_DIRECTORY})
 set(ADDITIONAL_PACKAGE_SEARCH_PATTERNS
     # Apple    
-    ~/Library/Frameworks
-    /Library/Frameworks
-    /usr/local
-    /opt/local
-    /opt/csw 
-    /usr
-    /opt
-    /sw 
+    # ~/Library/Frameworks
+    # /Library/Frameworks
+    # /usr/local
+    # /opt/local
+    # /opt/csw 
+    # /usr
+    # /opt
+    # /sw 
 )
 
 # ======================================================================================
