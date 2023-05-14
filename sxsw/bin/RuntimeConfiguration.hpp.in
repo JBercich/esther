@@ -1,0 +1,17 @@
+// =====================================================================================
+// CMake Runtime Configuration
+// =====================================================================================
+// Configuration fields generated from set CMake variables and options.
+// =====================================================================================
+
+#define RELEASE_EXECUTABLE_BUILD @RELEASE_EXECUTABLE_BUILD@
+#define CMAKE_EXPORT_COMPILE_COMMANDS @CMAKE_EXPORT_COMPILE_COMMANDS@
+
+#define BUILD_SOURCE_DIRECTORY @BUILD_SOURCE_DIRECTORY@
+#define BUILD_BINARY_DIRECTORY @BUILD_BINARY_DIRECTORY@
+#define BUILD_ASSETS_DIRECTORY @BUILD_ASSETS_DIRECTORY@
+
+#define BUILD_CONFIG_FILE @BUILD_CONFIG_FILE@
+#define RUNTIME_CONFIG_FILE @RUNTIME_CONFIG_FILE@
+
+#define EXECUTABLE_OUTPUT_PATH @EXECUTABLE_OUTPUT_PATH@

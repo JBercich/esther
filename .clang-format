@@ -1,0 +1,11 @@
+---
+# Clang Format config file
+
+# This is a baseline example of what settings were used for the clang-format checker. In
+# the future this will be exanded further.
+
+Language:       Cpp
+BasedOnStyle:   Google
+TabWidth:       4
+IndentWidth:    4
+...
