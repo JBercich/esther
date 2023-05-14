@@ -1,51 +1,80 @@
 # ======================================================================================
 # CMakeLists
 # ======================================================================================
-# This project has two targets from the src/ subdirectory being the Pong and SXSW execs.
-# CMake is used to maintain the project and may not use perfect axiomatic CMake since
-# this is such a large project with many subdirectories and separate components, but
-# is explained throughout where necessary.
-#
-# This component is responsible for setting up the project. The expected build
-# directory is build/ in order to create executables in the bin/ subdirectory. 
+# Setup and build the main executable.
+#   - Define build options and variables
+#   - Load packages
+#   - Define the executable
+#   - Write configuration files
 # ======================================================================================
 
 cmake_minimum_required(VERSION 3.24.2)
 
-project(Project LANGUAGES CXX)
+project(SXSW LANGUAGES CXX VERSION 0.1.0)
 
-# Set the CXX standard for the project
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Set filepaths for the project subdirectories
-cmake_path(SET SOURCE_BINARY_DIR "${CMAKE_SOURCE_DIR}/bin")
-cmake_path(SET SOURCE_SOURCE_DIR "${CMAKE_SOURCE_DIR}/src")
-cmake_path(SET SOURCE_AUDIO_DIR "${CMAKE_SOURCE_DIR}/audio")
-cmake_path(SET SOURCE_BUILD_DIR "${CMAKE_SOURCE_DIR}/build")
-cmake_path(SET SOURCE_LIBRARY_DIR "${CMAKE_SOURCE_DIR}/lib")
-cmake_path(SET SOURCE_ASSETS_DIR "${CMAKE_SOURCE_DIR}/assets")
+# Output build system information
+message("-- Build system information")
+message("---- System (${CMAKE_SYSTEM})")
+message("---- System Name (${CMAKE_SYSTEM_NAME})")
+message("---- System Version (${CMAKE_SYSTEM_VERSION})")
+message("---- Host System Name (${CMAKE_HOST_SYSTEM_NAME})")
+message("---- System Processor (${CMAKE_SYSTEM_PROCESSOR})")
 
-# Set configure file paths
-cmake_path(SET SYSTEM_CONFIG_FILE "${SOURCE_BINARY_DIR}/BuildConfigSystem.hpp")
-cmake_path(SET PROJECT_CONFIG_FILE "${SOURCE_BINARY_DIR}/BuildConfigProject.hpp")
-cmake_path(SET PONG_CONFIG_FILE "${SOURCE_BINARY_DIR}/BuildConfigTargetPong.hpp")
-cmake_path(SET SXSW_CONFIG_FILE "${SOURCE_BINARY_DIR}/BuildConfigTargetSXSW.hpp")
-cmake_path(SET SYSTEM_CONFIG_FILE_IN "${SOURCE_BINARY_DIR}/BuildConfigSystem.hpp.in")
-cmake_path(SET PROJECT_CONFIG_FILE_IN "${SOURCE_BINARY_DIR}/BuildConfigProject.hpp.in")
-cmake_path(SET PONG_CONFIG_FILE_IN "${SOURCE_BINARY_DIR}/BuildConfigTargetPong.hpp.in")
-cmake_path(SET SXSW_CONFIG_FILE_IN "${SOURCE_BINARY_DIR}/BuildConfigTargetSXSW.hpp.in")
+# ======================================================================================
+# Define build options and variables
+# ======================================================================================
 
-# Read operating system information
-message("-- Operating system information")
-message("---- Tag \t -> ${CMAKE_SYSTEM}")
-message("---- Name \t -> ${CMAKE_SYSTEM_NAME}")
-message("---- Version \t -> ${CMAKE_SYSTEM_VERSION}")
-message("---- Hostname \t -> ${CMAKE_HOST_SYSTEM_NAME}")
-message("---- Processor \t -> ${CMAKE_SYSTEM_PROCESSOR}")
+option(RELEASE_EXECUTABLE_BUILD "Output executable is built as a release" OFF)
+option(CMAKE_EXPORT_COMPILE_COMMANDS "Export the compilation commands for CMake" ON)
+option(CMAKE_ENABLE_EXPORTS "Allows executable links to be shared with libraries" ON)
 
-# Configure files that can be set from this CMakeLists
-configure_file(${SYSTEM_CONFIG_FILE_IN} ${SYSTEM_CONFIG_FILE})
+# Project subdirectory filepaths
+cmake_path(SET BUILD_SOURCE_DIRECTORY "${CMAKE_SOURCE_DIR}/src")
+cmake_path(SET BUILD_BINARY_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
+cmake_path(SET BUILD_ASSETS_DIRECTORY "${CMAKE_SOURCE_DIR}/assets")
 
-# Build the source directory executables
-add_subdirectory(src)
+# Configuration filepaths
+cmake_path(SET BUILD_CONFIG_FILE "${BUILD_BINARY_DIRECTORY}/BuildConfiguration.hpp")
+cmake_path(SET RUNTIME_CONFIG_FILE "${BUILD_BINARY_DIRECTORY}/RuntimeConfiguration.hpp")
+
+# Additional variables
+set(EXECUTABLE_OUTPUT_PATH ${BUILD_BINARY_DIRECTORY})
+set(ADDITIONAL_PACKAGE_SEARCH_PATTERNS
+    # Apple    
+    ~/Library/Frameworks
+    /Library/Frameworks
+    /usr/local
+    /opt/local
+    /opt/csw 
+    /usr
+    /opt
+    /sw 
+)
+
+# ======================================================================================
+# Load packages
+# ======================================================================================
+
+find_package(SDL2 2.26.2 REQUIRED HINTS ADDITIONAL_PACKAGE_SEARCH_PATTERNS)
+find_package(spdlog 1.11.0 REQUIRED HINTS ADDITIONAL_PACKAGE_SEARCH_PATTERNS)
+find_package(SDL2_ttf 2.20.1 REQUIRED HINTS ADDITIONAL_PACKAGE_SEARCH_PATTERNS)
+find_package(SDL2_image 2.6.2 REQUIRED HINTS ADDITIONAL_PACKAGE_SEARCH_PATTERNS)
+find_package(SDL2_mixer 2.6.2 REQUIRED HINTS ADDITIONAL_PACKAGE_SEARCH_PATTERNS)
+
+# ======================================================================================
+# Define the executable
+# ======================================================================================
+
+add_executable(SXSW)
+add_subdirectory(${BUILD_SOURCE_DIRECTORY})   
+target_link_libraries(SXSW PRIVATE libEngine libSXSW)
+
+# ======================================================================================
+# Write configuration files
+# ======================================================================================
+
+configure_file("${BUILD_CONFIG_FILE}.in" "${BUILD_CONFIG_FILE}")
+configure_file("${RUNTIME_CONFIG_FILE}.in" "${RUNTIME_CONFIG_FILE}")

@@ -1,9 +1,0 @@
-// =====================================================================================
-// SXSW Project Configuration
-// =====================================================================================
-// Configuration fields generated for the Cmake SXSW project.
-// =====================================================================================
-
-#define SXSW_VERSION_MAJOR @SXSW_VERSION_MAJOR@
-#define SXSW_VERSION_MINOR @SXSW_VERSION_MINOR@
-#define SXSW_VERSION_PATCH @SXSW_VERSION_PATCH@

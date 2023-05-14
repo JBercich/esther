@@ -1,4 +1,4 @@
-#include <Engine/Manager/WindowManager.hpp>
+#include <Engine/Manager/Window.hpp>
 
 #include <spdlog/spdlog.h>
 

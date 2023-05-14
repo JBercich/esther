@@ -1,0 +1,21 @@
+// =====================================================================================
+// SXSW Project Configuration
+// =====================================================================================
+// Configuration fields generated for the Cmake SXSW project.
+// =====================================================================================
+
+#define BUILD_VERSION_MAJOR @SXSW_VERSION_MAJOR@
+#define BUILD_VERSION_MINOR @SXSW_VERSION_MINOR@
+#define BUILD_VERSION_PATCH @SXSW_VERSION_PATCH@
+
+#define CMAKE_SYSTEM @CMAKE_SYSTEM@
+#define CMAKE_SYSTEM_NAME @CMAKE_SYSTEM_NAME@
+#define CMAKE_SYSTEM_VERSION @CMAKE_SYSTEM_VERSION@
+#define CMAKE_HOST_SYSTEM_NAME @CMAKE_HOST_SYSTEM_NAME@
+#define CMAKE_SYSTEM_PROCESSOR @CMAKE_SYSTEM_PROCESSOR@
+
+#define SDL2_PACKAGE_VERSION @SDL2_VERSION@
+#define SPDLOG_PACKAGE_VERSION @spdlog_VERSION@
+#define SDL2_TTF_PACKAGE_VERSION @SDL2_ttf_VERSION@
+#define SDL2_IMAGE_PACKAGE_VERSION @SDL2_image_VERSION@
+#define SDL2_MIXER_PACKAGE_VERSION @SDL2_mixer_VERSION@
