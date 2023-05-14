@@ -41,6 +41,7 @@ cmake_path(SET BUILD_CONFIG_FILE "${BUILD_BINARY_DIRECTORY}/BuildConfiguration.h
 cmake_path(SET RUNTIME_CONFIG_FILE "${BUILD_BINARY_DIRECTORY}/RuntimeConfiguration.hpp")
 
 # Additional variables
+set(SXSW_ICON ${BUILD_ASSETS_DIRECTORY}/images/icon.icns)
 set(EXECUTABLE_OUTPUT_PATH ${BUILD_BINARY_DIRECTORY})
 set(ADDITIONAL_PACKAGE_SEARCH_PATTERNS
     # Apple    
@@ -68,7 +69,18 @@ find_package(SDL2_mixer 2.6.2 REQUIRED HINTS ADDITIONAL_PACKAGE_SEARCH_PATTERNS)
 # Define the executable
 # ======================================================================================
 
-add_executable(SXSW)
+if(APPLE)
+    set_source_files_properties(
+        ${SXSW_ICON}
+        PROPERTIES 
+        MACOSX_PACKAGE_LOCATION "Resources"
+        MACOSX_BUNDLE_ICON_FILE "${SXSW_ICON}" 
+    )
+    add_executable(SXSW MACOSX_BUNDLE ${SXSW_ICON}) 
+elseif(WIN32)
+    add_executable(SXSW WIN32)
+endif()
+
 add_subdirectory(${BUILD_SOURCE_DIRECTORY})   
 target_link_libraries(SXSW PRIVATE libEngine libSXSW)
 
