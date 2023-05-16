@@ -1,4 +1,4 @@
-target_sources(SXSW PRIVATE main.cpp)
+
 
 add_library(libSXSW STATIC test.cpp)
 
@@ -20,3 +20,4 @@ target_link_libraries(libSXSW PRIVATE
     spdlog::spdlog
 )
 
+target_sources(SXSW PRIVATE main.cpp)

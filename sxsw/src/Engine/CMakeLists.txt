@@ -1,5 +1,5 @@
 # Engine library requires packages
-add_library(libEngine STATIC GameEngine.cpp GameLoop.cpp)
+add_library(libEngine STATIC GameEngine.cpp)
 
 target_include_directories(libEngine PUBLIC
     ${BUILD_BINARY_DIRECTORY}
@@ -19,5 +19,6 @@ target_link_libraries(libEngine PRIVATE
     spdlog::spdlog
 )
 
+# add_subdirectory(ECS)
+add_subdirectory(GameLoop)
 add_subdirectory(Manager)
-add_subdirectory(Utilities)

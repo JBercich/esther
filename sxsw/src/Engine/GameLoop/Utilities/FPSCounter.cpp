@@ -1,4 +1,4 @@
-#include <Engine/Utilities/FPSCounter.hpp>
+#include <Engine/GameLoop/Utilities/FPSCounter.hpp>
 
 void FPSCounter::startLoop() {
   if (frameCounter == frameRate) {
