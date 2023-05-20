@@ -20,5 +20,4 @@ target_link_libraries(libEngine PRIVATE
 )
 
 # add_subdirectory(ECS)
-add_subdirectory(GameLoop)
 add_subdirectory(Manager)

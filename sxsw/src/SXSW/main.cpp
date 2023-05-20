@@ -1,38 +1,34 @@
-
-// #include "GameConfig.h"
-// #include "WindowEnvironment.h"
+#include <SXSW/Game.hpp>
+#include <Engine/GameEngine.hpp>
 #include <iostream>
-#include <SXSW/test.hpp>
-// #include <string>
-// #include <Engine/Manager/Asset.hpp>
-
-// #include <CmakeConfig.hpp>
-// #include <Game/GameLoop.hpp>
 #include <spdlog/spdlog.h>
 
-// using namespace std;
-
 int main() {
-    // std::cout << "Hello World!";
-    // test();
-    // return 0;
-
     // Runtime logging setup
-    spdlog::set_pattern("[%H:%M:%S %z] [%^-%L-%$] [%s::%!(%#)] %v");
-    spdlog::enable_backtrace(5);
-    SPDLOG_INFO("starting game");
+    // spdlog::set_pattern("[%H:%M:%S %z] [%^-%L-%$] [%s::%!(%#)] %v");
+    // spdlog::enable_backtrace(5);
+    // SPDLOG_INFO("starting game");   
+
 
     // // Runtime loop
+
+    GameEngine gameEngine;
+    Game game(60, gameEngine);
+    game.run();
+
     // GameLoop gameLoop;
     // gameLoop.gameEngine.init();
     // gameLoop.run();
     // gameLoop.gameEngine.quit();
 
     // // Application close
-    SPDLOG_INFO("starting game");
-    spdlog::dump_backtrace();
-    spdlog::shutdown();
+    // SPDLOG_INFO("starting game");
+    // spdlog::dump_backtrace();
+    // spdlog::shutdown();
     return 1;
+
+
+
     // SDL_Event e;
     // while (!quit)
     // {

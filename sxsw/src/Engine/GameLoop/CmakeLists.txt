@@ -1,2 +1,0 @@
-add_subdirectory(Utilities)
-target_sources(libEngine PRIVATE GameLoop.cpp)

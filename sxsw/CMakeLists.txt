@@ -35,7 +35,7 @@ set(MSVC_CXX_COMPILER "$<COMPILE_LANG_AND_ID:CXX,MSVC>")
 
 # Executable build
 set(${PROJECT_NAME}_ICON ${BUILD_ASSETS_DIRECTORY}/images/icon.icns)
-# set(EXECUTABLE_OUTPUT_PATH ${BUILD_BINARY_DIRECTORY})
+set(EXECUTABLE_OUTPUT_PATH ${BUILD_BINARY_DIRECTORY})
 
 
 
@@ -60,7 +60,8 @@ if(APPLE)
         MACOSX_PACKAGE_LOCATION "Resources"
         MACOSX_BUNDLE_ICON_FILE "${${PROJECT_NAME}_ICON}" 
     )
-    add_executable(SXSW MACOSX_BUNDLE ${${PROJECT_NAME}_ICON}) 
+    # add_executable(SXSW MACOSX_BUNDLE ${${PROJECT_NAME}_ICON}) 
+    add_executable(SXSW) 
 elseif(WIN32)
     add_executable(SXSW WIN32)
 endif()

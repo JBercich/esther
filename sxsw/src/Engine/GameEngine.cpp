@@ -4,7 +4,7 @@
 
 // Initialise a GameEngine instance
 void GameEngine::init() {
-  int initResult = SDL_Init(SDL_INIT_TIMER | SDL_INIT_AUDIO | SDL_INIT_VIDEO);
+  int initResult = SDL_Init(SDL_INIT_EVERYTHING);
   if (initResult != 0) {
     SPDLOG_ERROR(SDL_GetError());
   }
