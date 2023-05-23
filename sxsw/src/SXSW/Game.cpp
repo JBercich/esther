@@ -1,4 +1,5 @@
 #include <SXSW/Game.hpp>
+#include <Engine/Utilities/FPSController.hpp>
 
 #include <iostream>
 #include <string>
@@ -15,6 +16,8 @@
 void Game::run()
 {
     using namespace std::chrono;
+    FPSController z;
+
 
     // Clocks for tracking system seconds and per iteration expected delays
     auto tickClock = steady_clock::now();
@@ -36,39 +39,42 @@ void Game::run()
     frameClock += milliseconds(frameRateRatio);
 
     // Main game loop
+    z.start();
     running = true;
 	while(running) {
+        z.iterate();
 
-        // Starting wall clock for calculating frame ticks
-        tempCounter = duration_cast<milliseconds>(
-            system_clock::now().time_since_epoch()).count();
+        // // Starting wall clock for calculating frame ticks
+        // tempCounter = duration_cast<milliseconds>(
+        //     system_clock::now().time_since_epoch()).count();
 
-        // Update for second intervals by resetting counters and output rates
-        if(frameClock > tickClock) 
-        {
-            // Calculate system frames per second
-            framesElapsedSystem = 1000 / (tickCounter / framesElapsedCount);
-            std::cout << "FPS (C): " << framesElapsedCount <<  std::endl;
-            std::cout << "FPS (S): " << framesElapsedSystem <<  std::endl;
+        // // Update for second intervals by resetting counters and output rates
+        // if(frameClock > tickClock) 
+        // {
+        //     // Calculate system frames per second
+        //     framesElapsedSystem = 1000 / (tickCounter / framesElapsedCount);
+        //     // std::cout << "FPS (C): " << framesElapsedCount <<  std::endl;
+        //     // std::cout << "FPS (S): " << framesElapsedSystem <<  std::endl;
 
-            // Reset clock timers and update for next interval
-            tickCounter = framesElapsedCount = 0;
-            tickClock += seconds(1);
-        }
+        //     // Reset clock timers and update for next interval
+        //     tickCounter = framesElapsedCount = 0;
+        //     tickClock += seconds(1);
+        // }
 
-        // Update frame counter and clock
-        framesElapsedCount++;
-        frameClock += milliseconds(frameRateRatio);
+        // // Update frame counter and clock
+        // framesElapsedCount++;
+        // frameClock += milliseconds(frameRateRatio);
 	
         // Main game logic component
         input();
         update();
         render();
+        z.delay();
         
         // Delay for appropriate frame rate cap and updating tick counter
-        std::this_thread::sleep_until(frameClock);
-        tickCounter += duration_cast<milliseconds>(
-            system_clock::now().time_since_epoch()).count() - tempCounter;
+        // std::this_thread::sleep_until(frameClock);
+        // tickCounter += duration_cast<milliseconds>(
+        //     system_clock::now().time_since_epoch()).count() - tempCounter;
     }
 };
 

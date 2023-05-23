@@ -11,7 +11,7 @@ target_include_directories(libEngine PUBLIC
     ${SPDLOG_INCLUDE_DIR} 
 )
 
-target_link_libraries(libEngine PRIVATE 
+target_link_libraries(libEngine PUBLIC 
     SDL2::SDL2 
     SDL2_image::SDL2_image 
     SDL2_ttf::SDL2_ttf 
@@ -21,3 +21,4 @@ target_link_libraries(libEngine PRIVATE
 
 # add_subdirectory(ECS)
 add_subdirectory(Manager)
+add_subdirectory(Utilities)
