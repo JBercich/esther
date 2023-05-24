@@ -3,8 +3,7 @@
 # ======================================================================================
 # CMake is used as the main build tool for this repository. This will use a monolithic-
 # styled build outline with CMakeLists files specified in each directory with files
-# built individually inline with the creator recommendations. The target executable is
-# built at runtime with additional tasks.
+# built individually inline with the creator recommendations.
 # ======================================================================================
 
 # Setup the CMake project target for building the executable

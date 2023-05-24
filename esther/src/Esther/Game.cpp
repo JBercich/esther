@@ -1,5 +1,5 @@
 #include <SXSW/Game.hpp>
-#include <Engine/Utilities/FPSController.hpp>
+#include <Engine/Utilities/GameController.hpp>
 
 #include <iostream>
 #include <string>
@@ -16,7 +16,7 @@
 void Game::run()
 {
     using namespace std::chrono;
-    FPSController z;
+    GameController z;
 
 
     // Clocks for tracking system seconds and per iteration expected delays
