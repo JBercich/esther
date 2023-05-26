@@ -18,39 +18,30 @@ set(MSVC_CXX_COMPILER "$<COMPILE_LANG_AND_ID:CXX,MSVC>")
 include(CTest)
 enable_testing()
 
+# Package management is manually done for each system by installing required packages
+# in the `external` subdirectory and the operating system of choice. This can also be
+# stored elsewhere but provides a single entrypoint HINT for the search pattern.
 
-# Get external packages using FetchContent and storing them in
-
-include(FetchContent)
-
-# Set FetchContent options
-set(FETCHCONTENT_QUIET OFF)
-set(FETCHCONTENT_BASE_DIR ${CMAKE_BINARY_DIR}/external)
-
-
-FetchContent_Declare(
-  SDL2
-    GIT_REPOSITORY    https://github.com/libsdl-org/SDL.git
-    GIT_TAG           release-2.26.5
-    GIT_SHALLOW       TRUE
-    GIT_PROGRESS      TRUE
-)
-FetchContent_MakeAvailable(SDL2)
-
-include_directories(${SDL2_SOURCE_DIR}/include)
-
+find_package(SDL2         2.26.5  REQUIRED HINTS ${CMAKE_CURRENT_BINARY_DIR}/external)
+find_package(SDL2_image   2.6.2   REQUIRED HINTS ${CMAKE_CURRENT_BINARY_DIR}/external)
+find_package(SDL2_mixer   2.6.2   REQUIRED HINTS ${CMAKE_CURRENT_BINARY_DIR}/external)
+find_package(SDL2_ttf     2.20.1  REQUIRED HINTS ${CMAKE_CURRENT_BINARY_DIR}/external)
+find_package(spdlog       1.11.0  REQUIRED HINTS ${CMAKE_CURRENT_BINARY_DIR}/external)
 
 add_executable(${PROJECT_NAME} src/main.cpp)
 
-
-target_link_libraries(
-  Esther 
-    SDL2::SDL2main 
-    SDL2::SDL2-static
+target_include_directories(
+    Esther 
+    PRIVATE
+        ${PROJECT_BINARY_DIR}/include
+        ${SPDLOG_INCLUDE_DIR} 
 )
 
-
-
+target_link_libraries(
+    Esther 
+    PRIVATE 
+        spdlog::spdlog
+)
 
 target_compile_options(
     ${PROJECT_NAME} 
@@ -62,4 +53,3 @@ target_compile_options(
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
-
