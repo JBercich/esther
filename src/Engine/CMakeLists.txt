@@ -1,9 +1,10 @@
 add_library(Engine STATIC GameEngine.cpp)
 
 target_include_directories(
-    Engine   
+    Engine
+    PUBLIC
+        ${CMAKE_SOURCE_DIR}/include
     PRIVATE
-        ${PROJECT_BINARY_DIR}/include
         ${SDL2_INCLUDE_DIR} 
         ${SDL2_IMAGE_INCLUDE_DIR} 
         ${SDL2_MIXER_INCLUDE_DIR} 
@@ -25,5 +26,4 @@ target_link_libraries(
 add_subdirectory(Manager)
 # add_subdirectory(Utilities)
 
-target_link_libraries(Esther PRIVATE Engine)
 

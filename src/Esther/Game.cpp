@@ -1,5 +1,5 @@
-#include <SXSW/Game.hpp>
-#include <Engine/Utilities/GameController.hpp>
+#include <Esther/Game.hpp>
+// #include <Engine/Utilities/GameController.hpp>
 
 #include <iostream>
 #include <string>
@@ -16,8 +16,7 @@
 void Game::run()
 {
     using namespace std::chrono;
-    GameController z;
-
+    // GameController z;
 
     // Clocks for tracking system seconds and per iteration expected delays
     auto tickClock = steady_clock::now();
@@ -39,17 +38,18 @@ void Game::run()
     frameClock += milliseconds(frameRateRatio);
 
     // Main game loop
-    z.start();
+    // z.start();
     running = true;
-	while(running) {
-        z.iterate();
+    while (running)
+    {
+        // z.iterate();
 
         // // Starting wall clock for calculating frame ticks
         // tempCounter = duration_cast<milliseconds>(
         //     system_clock::now().time_since_epoch()).count();
 
         // // Update for second intervals by resetting counters and output rates
-        // if(frameClock > tickClock) 
+        // if(frameClock > tickClock)
         // {
         //     // Calculate system frames per second
         //     framesElapsedSystem = 1000 / (tickCounter / framesElapsedCount);
@@ -64,13 +64,13 @@ void Game::run()
         // // Update frame counter and clock
         // framesElapsedCount++;
         // frameClock += milliseconds(frameRateRatio);
-	
+
         // Main game logic component
         input();
         update();
         render();
-        z.delay();
-        
+        // z.delay();
+
         // Delay for appropriate frame rate cap and updating tick counter
         // std::this_thread::sleep_until(frameClock);
         // tickCounter += duration_cast<milliseconds>(

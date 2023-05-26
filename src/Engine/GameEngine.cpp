@@ -3,9 +3,11 @@
 #include <spdlog/spdlog.h>
 
 // Initialise a GameEngine instance
-void GameEngine::init() {
+void GameEngine::init()
+{
   int initResult = SDL_Init(SDL_INIT_EVERYTHING);
-  if (initResult != 0) {
+  if (initResult != 0)
+  {
     SPDLOG_ERROR(SDL_GetError());
   }
   windowManager.init();
@@ -15,7 +17,8 @@ void GameEngine::init() {
 }
 
 // Quit a GameEngine instance
-void GameEngine::quit() {
+void GameEngine::quit()
+{
   fontManager.quit();
   audioManager.quit();
   assetManager.quit();
