@@ -1,0 +1,62 @@
+
+
+
+
+
+
+# # Executable build
+# set(${PROJECT_NAME}_ICON ${BUILD_ASSETS_DIRECTORY}/images/icon.icns)
+
+
+
+
+# # ======================================================================================
+# # Load packages
+# # ======================================================================================
+
+# find_package(SDL2 2.26.2 REQUIRED)
+# find_package(spdlog 1.11.0 REQUIRED)
+# find_package(SDL2_ttf 2.20.1 REQUIRED)
+# find_package(SDL2_image 2.6.2 REQUIRED)
+# find_package(SDL2_mixer 2.6.2 REQUIRED)
+
+# # ======================================================================================
+# # Define the executable
+# # ======================================================================================
+
+# # Build the executable for each operating system
+# if(APPLE)
+#     set_source_files_properties(${${PROJECT_NAME}_ICON} PROPERTIES 
+#         MACOSX_PACKAGE_LOCATION "Resources"
+#         MACOSX_BUNDLE_ICON_FILE "${${PROJECT_NAME}_ICON}" 
+#     )
+#     # add_executable(SXSW MACOSX_BUNDLE ${${PROJECT_NAME}_ICON}) 
+#     add_executable(SXSW) 
+# elseif(WIN32)
+#     add_executable(SXSW WIN32)
+# endif()
+
+
+# target_include_directories(SXSW PUBLIC
+#     ${BUILD_BINARY_DIRECTORY}
+#     ${BUILD_SOURCE_DIRECTORY}
+#     ${SDL2_INCLUDE_DIR} 
+#     ${SDL2_IMAGE_INCLUDE_DIR} 
+#     ${SDL2_TTF_INCLUDE_DIR} 
+#     ${SDL2_MIXER_INCLUDE_DIR} 
+#     ${SPDLOG_INCLUDE_DIR} 
+# )
+
+# target_link_libraries(SXSW PRIVATE 
+#     SDL2::SDL2 
+#     SDL2_image::SDL2_image 
+#     SDL2_ttf::SDL2_ttf 
+#     SDL2_mixer::SDL2_mixer
+#     spdlog::spdlog
+# )
+
+
+# # Build source directory and link libraries
+# add_subdirectory(${BUILD_SOURCE_DIRECTORY})   
+# target_link_libraries(SXSW PRIVATE libEngine libSXSW)
+
