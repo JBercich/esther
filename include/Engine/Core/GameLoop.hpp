@@ -6,22 +6,18 @@ namespace Engine
     /**
      * GameLoop
      * --------
-     * The game loop is the main executing block of the game logic. This will contain 
-     * the generalised input, update and render functions which will accept overridable
-     * input data structures for easy exportable functionality. The loop itself is
-     * controlled with a fine granularity as supported by a GameController instance.
-     * 
-     *      GameLoop loop;
-     *      loop.start();
+     * Responsible for controlling the main game logic abstraction and game loop model
+     * of the game with input, update and render functions. Added utilities are used for
+     * controlling execution and passing around game data at runtime.
      */
     class GameLoop 
     {
         private:
-            bool running { true };
+            bool running = true;
 
             void input();
             void update();
-            void render();
+            void render(double interpolation);
         
         public:
             GameLoop(){};
