@@ -1,32 +1,38 @@
 #include <Engine/Core/GameLoop.hpp>
 #include <Engine/Core/GameController.hpp>
 
-void GameLoop::start()
+namespace Engine 
 {
-    GameController gameController;
-    while(running)
+    /**
+     * Start the execution of the main game loop. 
+     */
+    void GameLoop::start()
     {
-        gameController.step();
-        input();
-        update();
-        render();
-    }
-};
+        GameController gameController;
+        while(running)
+        {
+            gameController.step();
+            input();
+            update();
+            render();
+        }
+    };
 
-void GameLoop::input() 
-{
-    return;
-};
+    void GameLoop::input() 
+    {
+        // TODO
+    };
 
-void GameLoop::update() 
-{
-    return;
-};
+    void GameLoop::update() 
+    {
+        // TODO
+    };
 
-void GameLoop::render() 
-{
-    return;
-};
+    void GameLoop::render() 
+    {
+        // TODO
+    };
+}
 
 // #include <cmath>
 // #include <chrono>
