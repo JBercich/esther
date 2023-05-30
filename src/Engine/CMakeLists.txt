@@ -1,4 +1,4 @@
-add_library(Engine STATIC GameEngine.cpp)
+add_library(Engine STATIC Engine.cpp Game.cpp)
 
 target_include_directories(
     Engine
@@ -22,8 +22,7 @@ target_link_libraries(
         spdlog::spdlog
 )
 
-# add_subdirectory(ECS)
+add_subdirectory(Core)
 add_subdirectory(Manager)
-# add_subdirectory(Utilities)
 
 

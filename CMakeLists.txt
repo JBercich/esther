@@ -12,7 +12,6 @@ project(Esther LANGUAGES CXX VERSION 0.1.0)
 cmake_policy(SET CMP0076 NEW)
 cmake_policy(SET CMP0079 NEW)
 
-
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
@@ -54,6 +53,11 @@ target_compile_options(
     INTERFACE
         "$<${GCC_CXX_COMPILER}:$<BUILD_INTERFACE:-Wall;-Wextra;-Wshadow;-Wformat=2;-Wunused>>"
         "$<${MSVC_CXX_COMPILER}:$<BUILD_INTERFACE:-W3>>"
+)
+
+configure_file(
+    ${PROJECT_SOURCE_DIR}/include/Build/BuildConfig.hpp.in 
+    ${PROJECT_SOURCE_DIR}/include/Build/BuildConfig.hpp
 )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

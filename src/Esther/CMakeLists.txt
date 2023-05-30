@@ -1,1 +1,1 @@
-target_sources(Esther PRIVATE Game.cpp)
+target_sources(Esther PRIVATE Esther.cpp)
