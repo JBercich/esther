@@ -2,6 +2,7 @@
 #define ENGINE_H
 
 #include <Engine/Game.hpp>
+#include <Engine/Core/Managers/LoggerManager.hpp>
 
 namespace Engine
 {
@@ -24,6 +25,7 @@ namespace Engine
         private:
             void init();
             void quit();
+            Managers::LoggerManager loggerManager;
             
         public:
             Engine(){};

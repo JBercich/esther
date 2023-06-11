@@ -56,8 +56,8 @@ target_compile_options(
 )
 
 configure_file(
-    ${PROJECT_SOURCE_DIR}/include/Build/BuildConfig.hpp.in 
-    ${PROJECT_SOURCE_DIR}/include/Build/BuildConfig.hpp
+    ${PROJECT_SOURCE_DIR}/include/Build.hpp.in 
+    ${PROJECT_SOURCE_DIR}/include/Build.hpp
 )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
