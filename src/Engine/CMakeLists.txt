@@ -23,6 +23,6 @@ target_link_libraries(
 )
 
 add_subdirectory(Core)
-add_subdirectory(Manager)
+add_subdirectory(Utilities)
 
 
