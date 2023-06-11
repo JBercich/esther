@@ -1,0 +1,1 @@
+target_sources(Engine PRIVATE Logger.cpp) #Asset.cpp Audio.cpp Font.cpp Renderer.cpp)
