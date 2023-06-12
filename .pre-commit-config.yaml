@@ -1,3 +1,11 @@
+# .pre-commit-config.yaml
+# -----------------------
+
+# Pre-commit hooks are defined for this project to help during development and with the
+# overall code readability and compliance with coding standards. Formatting checks and
+# linters are defined to improve the code quality. Overtime, I may add more hooks to 
+# help with development for this project.
+
 repos:
   - repo: https://github.com/pocc/pre-commit-hooks
     rev: v1.3.5
