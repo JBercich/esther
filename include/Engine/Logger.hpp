@@ -1,11 +1,12 @@
 /**
- * @file            Logger.hpp
- * @author          Josh Bercich (joshbercich@gmail.com)
- * @date            2023-06-12
+ * @brief         TODO_OVERVIEW
  * 
- * @brief test docs.
+ *                TODO_DETAILED_DESCRIPTION
  * 
- * Copyright (c) 2023 Josh Bercich (joshbercich@gmail.com)
+ * @file          Logger.hpp
+ * @date          2023-06-12
+ * @author        Josh Bercich (joshbercich@gmail.com)
+ * @copyright     Copyright (c) 2023 Josh Bercich (joshbercich@gmail.com)
  */
 
 #ifndef LOGGER_H
