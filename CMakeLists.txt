@@ -110,7 +110,7 @@ find_package(spdlog       1.11.0  REQUIRED)
 # included library for use. Other packages such as `SDL2` will be used through a wrapepr
 # in the engine static library.
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} src/Main.cpp)
 
 target_include_directories(
     ${PROJECT_NAME} 
