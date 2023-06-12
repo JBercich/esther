@@ -1,0 +1,38 @@
+/**
+ * @brief           Build configuration information defined by `cmake`. Static absolute
+ *                  fields are read into this header file to be used as pre-processor
+ *                  macro definitions such as the `CMAKE_BUILD_TYPE` for distinguishing
+ *                  between debug and trace logging levels.
+ * 
+ * @file            BuildConfig.hpp
+ * @date            2023-06-12
+ * @author          Josh Bercich (joshbercich@gmail.com)
+ * @copyright       Copyright (c) 2023 Josh Bercich (joshbercich@gmail.com)
+ */
+
+#ifndef BUILD_CONFIG_HPP
+#define BUILD_CONFIG_HPP
+
+#define BUILD_PROJECT_NAME          @PROJECT_NAME@
+#define BUILD_PROJECT_VERSION       @PROJECT_VERSION@
+
+#define BUILD_SYSTEM                @CMAKE_SYSTEM@
+#define BUILD_SYSTEM_NAME           @CMAKE_SYSTEM_NAME@
+#define BUILD_SYSTEM_VERSION        @CMAKE_SYSTEM_VERSION@
+#define BUILD_HOST_SYSTEM_NAME      @CMAKE_HOST_SYSTEM_NAME@
+#define BUILD_SYSTEM_PROCESSOR      @CMAKE_SYSTEM_PROCESSOR@
+
+#define SDL2_PACKAGE_VERSION        @SDL2_VERSION@
+#define SDL2_IMAGE_PACKAGE_VERSION  @SDL2_image_VERSION@
+#define SDL2_MIXER_PACKAGE_VERSION  @SDL2_mixer_VERSION@
+#define SDL2_TTF_PACKAGE_VERSION    @SDL2_ttf_VERSION@
+#define SPDLOG_PACKAGE_VERSION      @spdlog_VERSION@
+
+#define BUILD_TYPE                  @CMAKE_BUILD_TYPE@
+#define BUILD_TYPE_DEBUG            @CMAKE_BUILD_TYPE_DEBUG@
+#define BUILD_TYPE_RELEASE          @CMAKE_BUILD_TYPE_RELEASE@
+#define BUILD_TYPE_MINSIZEREL       @CMAKE_BUILD_TYPE_MINSIZEREL@
+#define BUILD_TYPE_RELWITHDEBINFO   @CMAKE_BUILD_TYPE_RELWITHDEBINFO@
+
+#endif
+

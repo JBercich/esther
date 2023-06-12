@@ -1,16 +1,24 @@
 /**
- * @brief         TODO_OVERVIEW
+ * @brief           Logger instances for the application will be defined in this file to
+ *                  be split across an `Engine` and `Game` instance with respective
+ *                  macros. Setup constants are also defined with conditional log-level
+ *                  filtering on the trace level (between `Debug` and `Release` builds).
+ *                  A release build definition is made by CMake invocations in the top-
+ *                  level `Build.hpp` header file.
  * 
- *                TODO_DETAILED_DESCRIPTION
+ *                  ```
+ *                  ENGINE_INFO("Test logging statement: {}", 100);
+ *                  GAME_TRACE("Test game logger");
+ *                  ```
  * 
- * @file          Logger.hpp
- * @date          2023-06-12
- * @author        Josh Bercich (joshbercich@gmail.com)
- * @copyright     Copyright (c) 2023 Josh Bercich (joshbercich@gmail.com)
+ * @file            Logger.hpp
+ * @date            2023-06-12
+ * @author          Josh Bercich (joshbercich@gmail.com)
+ * @copyright       Copyright (c) 2023 Josh Bercich (joshbercich@gmail.com)
  */
 
-#ifndef LOGGER_H
-#define LOGGER_H
+#ifndef LOGGER_HPP
+#define LOGGER_HPP
 
 #include <Build.hpp>
 

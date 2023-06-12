@@ -51,3 +51,6 @@ _deps
 # Doxygen
 html
 latex
+
+# Configuration files
+include/BuildConfig.hpp
