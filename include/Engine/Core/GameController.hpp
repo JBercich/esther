@@ -65,6 +65,7 @@ namespace Engine
             double gameTime = 0;
 
             // Iteration time points for frame rate and second-reset metrics
+            /** Test desc */
             std::chrono::time_point<std::chrono::steady_clock, 
                 std::chrono::duration<double>> startLoopTime{};
             std::chrono::time_point<std::chrono::steady_clock, 
@@ -86,6 +87,11 @@ namespace Engine
             ~GameController(){};
 
             void step();
+            /**
+             * Following an update of the game loop, certain measures are incremented and the 
+             * simulated game time is updated to reflected the fixed interval change in the game
+             * state of the loop.
+             */
             void update();
             bool canUpdate();
             double getInterpolation();

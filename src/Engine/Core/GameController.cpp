@@ -43,11 +43,6 @@ namespace Engine
         frameCounter++;
     };
 
-    /**
-     * Following an update of the game loop, certain measures are incremented and the 
-     * simulated game time is updated to reflected the fixed interval change in the game
-     * state of the loop.
-     */
     void GameController::update()
     {
         gameTime -= DELTA_TICK_RATE.count();
