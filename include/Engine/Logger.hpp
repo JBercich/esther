@@ -20,7 +20,7 @@
 #ifndef LOGGER_HPP
 #define LOGGER_HPP
 
-#include <Build.hpp>
+#include <BuildConfig.hpp>
 
 #include <spdlog/spdlog.h>
 

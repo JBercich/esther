@@ -1,1 +1,1 @@
-target_sources(Esther PRIVATE Esther.cpp)
+target_sources(${PROJECT_NAME} PRIVATE Esther.cpp)

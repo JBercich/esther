@@ -1,7 +1,17 @@
-add_library(Engine STATIC Engine.cpp Game.cpp)
+# Library
+# -------
+
+# The engine library is built in this subdirectory as a separate entity from the
+# game but can be used by the game itself as some wrapper package API for running
+# a game with a set of engine data structure instances and resource managers. It
+# uses the SDL2 suite of packages to ensure that a game instance does not need to
+# worry about this functionality and can use some wrapping class to perform any
+# actions associated with said packages.
+
+add_library(${PROJECT_NAME_ENGINE} STATIC Engine.cpp Game.cpp)
 
 target_include_directories(
-    Engine
+    ${PROJECT_NAME_ENGINE}
     PUBLIC
         ${CMAKE_SOURCE_DIR}/include
     PRIVATE
@@ -13,7 +23,7 @@ target_include_directories(
 )
 
 target_link_libraries(
-    Engine 
+    ${PROJECT_NAME_ENGINE} 
     PRIVATE
         SDL2::SDL2 
         SDL2_image::SDL2_image 
@@ -24,5 +34,3 @@ target_link_libraries(
 
 add_subdirectory(Core)
 add_subdirectory(Utilities)
-
-

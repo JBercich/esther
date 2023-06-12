@@ -23,7 +23,11 @@
 # tool since this file should remain fairly unchanged.
 
 cmake_minimum_required(VERSION 3.0.0)
-project(Esther LANGUAGES CXX VERSION 0.1.0)
+
+set(PROJECT_NAME        "Esther")
+set(PROJECT_NAME_ENGINE "Engine")
+
+project(${PROJECT_NAME} LANGUAGES CXX VERSION 0.1.0)
 
 # Using the latest CMP0076 policy allows the addition of sources for the target exec.
 # using target_sources within subdirectories after the definition of the executable.
