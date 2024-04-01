@@ -31,8 +31,8 @@ namespace Engine::Managers
         gameLogger->flush_on(spdlog::level::trace);
     };
 
-    void LoggerManager::shutdown()
-    {
-        spdlog::shutdown();
-    };
+    // void LoggerManager::shutdown()
+    // {
+    //     spdlog::shutdown();
+    // };
 }

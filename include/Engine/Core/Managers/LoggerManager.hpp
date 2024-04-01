@@ -12,6 +12,8 @@
 #ifndef LOGGER_MANAGER_H
 #define LOGGER_MANAGER_H
 
+#include <Engine/Core/Managers/ResourceManager.hpp>
+
 #include <spdlog/spdlog.h>
 
 namespace Engine::Managers
@@ -19,25 +21,13 @@ namespace Engine::Managers
     /**
      * LoggerManager instances are responsible for the initialisation and shutdown of
      * an `spdlog` environment with specific logger instances defined for the app
-     * engine and game abstractions.
+     * engine and application abstractions.
      */
-    class LoggerManager 
+    class LoggerManager : public ResourceManager
     {
         public:
-            LoggerManager() = default;
-            ~LoggerManager() = default;
-
-            /**
-             * Initialise the LoggerManager instance by creating the logging sinks and
-             * separate loggers for the engine and game environments. Logger output
-             * patterns and (flush) levels are set respectively.
-             */
             void initialise();
-
-            /**
-             * Loggers from `spdlog` are closed and deallocated.
-             */
-            void shutdown();
+            // void shutdown();
     };
 }
 

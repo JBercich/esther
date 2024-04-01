@@ -3,7 +3,9 @@
 
 int main()
 {
-    Esther::Esther game;
     Engine::Engine engine;
+    Esther::Esther game;
+    engine.initialise();
     engine.run(game);
+    engine.shutdown();
 }
