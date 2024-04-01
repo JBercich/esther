@@ -23,3 +23,12 @@ $ ./build/Esther
 > Development on this project is taking place on an `arm64` MacOS platform. At the early
 > stages, cross-platforms builds and the output Cmarke artifacts are very much still in
 > development.
+
+## Documentation
+
+Doxygen docs can be generated easily from the project root directory.
+
+```shell
+# Generate documentation 'html' and 'latex' output in /docs.
+$ doxygen .doxygen
+```
