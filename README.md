@@ -1,13 +1,25 @@
-# Game Development
+# Esther
 
-In this repository I aim to create a game from the ground up (bar SDL2). The main focus will be a split project with a dedicated small-scale engine for 2D environments wrapping the majority of package-dependent interface demands from a game instance. Over time, I may move this project to a private workspace depending on the progress I can make in my spare time. 
+## Overview
 
-## Learning Outcomes
+Working towards a simple and lightweight customizable game engine in C++ using SDL2
+for helping with cross-platform builds. 
 
-Below are some of the major learning outcomes I've made along the way in this project. As a starting point, I had no experience in C++ or any large-scale C-like application so all the strings attached have been grand learning experiences.
+## Build
 
-- CMake for application building, package handling, and its other purposes.
-- Doxygen for C-like documentation generation for large-scale projects.
-- C++ OOP structures and class implementations of application logic.
-- C++ memory differences from C (shared pointers and destructors).
-- Game-loop logic such as variable FPS, VSYNC, and fixed-step updates (chrono).
+Cmake is used for building the project. Considering the eventual size of the codebase, a
+monolith build with static definitions of project files is done in the branching nested
+directories rather than using a regex globbing for packaging `.cpp` and headers.
+
+```shell
+# From project root, target the build directory.
+$ cmake build       
+
+# Running the built executable.
+$ ./build/Esther
+```
+
+> [!NOTE]
+> Development on this project is taking place on an `arm64` MacOS platform. At the early
+> stages, cross-platforms builds and the output Cmarke artifacts are very much still in
+> development.
