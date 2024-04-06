@@ -12,11 +12,10 @@ monolith build with static definitions of project files is done in the branching
 directories rather than using a regex globbing for packaging `.cpp` and headers.
 
 ```shell
-# From project root, target the build directory.
-$ cmake build       
-
-# Running the built executable.
-$ ./build/Esther
+$ cd build
+$ cmake ..     
+$ make
+$ ./Esther
 ```
 
 > [!NOTE]

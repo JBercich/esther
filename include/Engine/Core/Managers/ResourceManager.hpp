@@ -1,14 +1,3 @@
-/**
- * @brief           Resources for the engine are handled by manager instances. To allow
- *                  flexibility, each manager should implemented a set of functions in a
- *                  separation of logic which must be overriden by inheritted classes.
- * 
- * @file            ResourceManager.hpp
- * @date            2023-06-12
- * @author          Josh Bercich (joshbercich@gmail.com)
- * @copyright       Copyright (c) 2023 Josh Bercich (joshbercich@gmail.com)
- */
-
 #ifndef RESOURCE_MANAGER_H
 #define RESOURCE_MANAGER_H
 
@@ -22,7 +11,6 @@ namespace Engine::Managers
     class ResourceManager 
     {
         public:
-
             /**
              * The resource controlled by this manager is properly initialised and once
              * completed, the resource can be used with the exepected functionality.

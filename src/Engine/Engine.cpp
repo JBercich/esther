@@ -1,5 +1,4 @@
 #include <Engine/Engine.hpp>
-
 #include <Engine/Logger.hpp>
 
 namespace Engine 
@@ -8,16 +7,15 @@ namespace Engine
     {
         // Initialise logger manager
         loggerManager.initialise();
-        ENGINE_INFO("Initialised loggerManager");
+        ENGINE_INFO("Initialised loggerManager instance");
     };
 
     void Engine::shutdown()
     {
         // Shutdown logger manager
-        ENGINE_INFO("Shutdown loggerManager");
+        ENGINE_INFO("Shutdown loggerManager instance");
         loggerManager.shutdown();
     }
-
 
     void Engine::run(Game game)
     {

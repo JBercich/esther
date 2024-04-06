@@ -1,14 +1,3 @@
-/**
- * @brief           Logging management controls the use of `spdlog` to setup the loggers
- *                  and sinks with respective formatters and levels. Further control of
- *                  log levels is performed in the top-level `Logger.hpp` with macros.
- * 
- * @file            LoggerManager.hpp
- * @date            2023-06-12
- * @author          Josh Bercich (joshbercich@gmail.com)
- * @copyright       Copyright (c) 2023 Josh Bercich (joshbercich@gmail.com)
- */
-
 #ifndef LOGGER_MANAGER_H
 #define LOGGER_MANAGER_H
 
@@ -27,7 +16,7 @@ namespace Engine::Managers
     {
         public:
             void initialise();
-            // void shutdown();
+            void shutdown();
     };
 }
 
