@@ -9,7 +9,7 @@ for helping with cross-platform builds.
 
 Cmake is used for building the project. Considering the eventual size of the codebase, a
 monolith build with static definitions of project files is done in the branching nested
-directories rather than using a regex globbing for packaging `.cpp` and headers.
+directories **rather** than using a regex globbing for packaging `.cpp` and headers.
 
 ```shell
 $ cd build
